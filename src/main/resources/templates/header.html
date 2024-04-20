@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <header class="header" th:fragment="header">
+        <div class="logo">
+            <img src="/resources/images/logo.png" height="70px" width="70px">
+        </div>
+        <div>
+            <a href="/" style="text-decoration: none; color: #fff;">
+                <h1 style="margin-left: 150px;" sec:authorize="isAuthenticated()">ZooWorld</h1>
+                <h1 style="margin-left: 107px;" sec:authorize="isAnonymous()">ZooWorld</h1>
+            </a>
+        </div>
+        <nav class="nav">
+            <ul>
+                <li sec:authorize="isAuthenticated()">
+                    <a href="/catalog">Каталог</a>
+                </li>
+                <li sec:authorize="isAuthenticated()">
+                    <a href="/account">Учетная запись</a>
+                </li>
+
+                <li sec:authorize="isAnonymous()">
+                    <a href="/login">Вход</a>
+                </li>
+                <li sec:authorize="isAnonymous()">
+                    <a href="/register">Регистрация</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>
